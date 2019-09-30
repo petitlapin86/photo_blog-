@@ -1,0 +1,23 @@
+<!--this is the template or view-->
+<!----Title-->
+<h2>{{entry.title}}</h2>
+<!----Photo-->
+<figure>
+<img src="{{entry.photo}}">
+<figcaption>{{entry.description}}</figcaption>
+</figure>
+<!----Buttons-->
+<div class="actions">
+<!----Emoji Button-->
+<button type="button" (click)="isLiked = !isLiked"
+[ngClass]="{liked: isLiked}">❤️
+</button>
+<!----Show Comments Button-->
+<button type="button" (click)="showComments = !showComments">Comments ({{entry.comments.length}})</button>
+</div>
+<!----comments-->
+<div class="comments" *ngIf="showComments"> <!--IF show comments is true then display comments -->
+  <div class="comment" *ngFor="let comment of entry.comments"> <!----using angular to iterate over each item in comments array-->
+      <p><strong>{{comment.name}}</strong>{{comment.comment}}</p>
+    </div>
+</div>

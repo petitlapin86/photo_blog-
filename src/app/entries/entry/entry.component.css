@@ -1,0 +1,45 @@
+/*Because these changes are in the entry component
+ they wont effect css styles anywhere else in the app*/
+
+/*GOAL below is to make images responsive*/
+
+/*customize html figure tag*/
+figure {
+  margin:0;
+  border: 1px solid #000;
+  position: relative;
+}
+
+ /*customize html figcaption tag*/
+figcaption {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 1.2em;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+ /*customize html img tag*/
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:host { /*scope to the shadow tree*/
+  padding: 1em;
+  display: block;
+}
+
+/*customize emoji button*/
+.actions {
+  padding: 1em 0;
+}
+
+/*When user clicks emoji button to like change its color*/
+.liked {
+  color: red;
+}
