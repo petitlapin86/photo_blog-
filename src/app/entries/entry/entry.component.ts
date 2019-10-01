@@ -16,4 +16,8 @@ export class EntryComponent {
 //  {name: "Selena", comment: " Her comment"}
 //  ]
     @Input() entry: Entry;
+
+    onCommentAdded(comment: {name: string; comment:string;}) { //when a new comment is added
+      this.entry.comments.push(comment); //push onto comments array
+    }
 }

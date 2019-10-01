@@ -1,0 +1,31 @@
+
+ <!--COMMENT FORM--->
+<form (submit)="onSubmit()" #commentForm="ngForm" novalidate>  <!--create a local variable #commentForm / noValidate disables browsers built in validation so i can customize validation messages--->
+
+    <div> <!--NAME--->
+      <label for="name">Name</label>
+      <input type="text" name="name" [(ngModel)]="name" required min-length="3" #nameField="ngModel"> <!--2way data binding & create a local variable #nameField -->
+          <!---NAME VALIDATION-->
+          <div class="alert alert-danger" *ngIf="(commentForm.submitted || nameField.dirty || nameField.touched && nameField.errors)">
+            <div [hidden]="!nameField.errors.required"> Name is required</div> <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
+            <div [hidden]="!nameField.errors.minLength"> Name must be a minimum of 3 characters long</div> <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
+          </div> <!--close validation--->
+    </div> <!--close name input-->
+
+    <div> <!--COMMENT--->
+      <label for="comment">Comment</label>
+      <textarea name="comment" [(ngModel)]="comment" required min-length="3" #commentField="ngModel"></textarea> <!--2way data binding & create local variable #commentField-->
+          <!---COMMENT VALIDATION-->
+          <div class="alert alert-danger" *ngIf="(commentForm.submitted || commentField.dirty || commentField.touched && commentField.errors)">
+            <div [hidden]="!commentField.errors.required"> Comment is required</div> <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
+            <div [hidden]="!commentField.errors.minLength"> Comment must be a minimum of 3 character long</div> <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
+          </div> <!--close validation--->
+    </div> <!--close comment input-->
+
+    <div> <!--BUTTON--->
+      <button>
+        Submit
+      </button>
+    </div>
+
+</form> <!--close tag form--->

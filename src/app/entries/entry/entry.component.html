@@ -17,7 +17,11 @@
 </div>
 <!----comments-->
 <div class="comments" *ngIf="showComments"> <!--IF show comments is true then display comments -->
-  <div class="comment" *ngFor="let comment of entry.comments"> <!----using angular to iterate over each item in comments array-->
+    <div class="comment" *ngFor="let comment of entry.comments"> <!----using angular to iterate over each item in comments array-->
       <p><strong>{{comment.name}}</strong>{{comment.comment}}</p>
     </div>
+<!----comments form-->
+    <app-entry-comment-form (onCommentAdded)="onCommentAdded($event)" [entryId]="entry.id"></app-entry-comment-form> <!---connect components in order to add new comment to comments-->
+<!--basically data is flowing 1-way from the parent component (entry) to the child component (form) --->
+
 </div>
