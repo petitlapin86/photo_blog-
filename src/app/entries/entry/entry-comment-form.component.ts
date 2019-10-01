@@ -23,7 +23,7 @@ export class EntryCommentFormComponent { //create a class
   }
 
   onSubmit(commentForm: NgForm) {
-    if(this.commentForm.invalid) return; //if the form is not valid dont execute function --> this solves the issue of blank comment space being added 
+    if(this.commentForm.invalid) return; //if the form is not valid dont execute function --> this solves the issue of blank comment space being added
     let comment = { name: this.name, comment: this.comment };
     this.entryService.addComment(this.entryId, comment)
       .then(() => {
